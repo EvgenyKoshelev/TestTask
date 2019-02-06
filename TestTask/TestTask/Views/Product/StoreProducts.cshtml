@@ -1,0 +1,31 @@
+﻿@model TestTask.Models.Mod
+
+@{
+    ViewBag.Title = "Store products";
+}
+
+<h2>Store products</h2>
+<table class="table">
+	<td>
+		StoreId : @Html.DisplayFor(modelItem => Model.StoreId)
+	</td>
+
+	@foreach (var item in Model.Products) {
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Name)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Description)
+			</td>
+		<td>
+			<title> Можно было и оставить эти дествия, но я думаю для просмотра товара по данной постановке задачи это не нужно
+				@Html.ActionLink("Details", "Details", new { id = item.Id })
+				@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+				@Html.ActionLink("Delete", "Delete", new { id = item.Id })
+			</title>
+			</td>
+		</tr>
+	}
+
+</table>
